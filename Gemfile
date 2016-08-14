@@ -64,3 +64,4 @@ gem 'high_voltage'
 gem 'bourbon', '5.0.0.beta.6'
 gem 'neat', '~> 1.8.0'
 gem 'refills', group: [:development, :test]
+#gem 'devise'
