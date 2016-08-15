@@ -1,5 +1,6 @@
 class Participant < ApplicationRecord
   has_and_belongs_to_many :categories
+  has_many :votes
 
   def nombre_completo
     "#{self.name} #{self.lastname} #{self.lastname2}"

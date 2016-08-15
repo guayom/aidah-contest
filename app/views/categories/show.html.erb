@@ -14,7 +14,7 @@
         <td></td>
         <td><%= participant.nombre_completo %></td>
         <td>Votos</td>
-        <td>votar btn</td>
+        <td><%= link_to 'Votar', new_participant_vote_path(participant.id) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :vote do
+    participant_id 1
+  end
   factory :category do
     title "MyString"
   end
