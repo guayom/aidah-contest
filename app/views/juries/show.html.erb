@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @jury.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @jury.email %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @jury.bio %>
+</p>
+
+<%= link_to 'Edit', edit_jury_path(@jury) %> |
+<%= link_to 'Back', juries_path %>
