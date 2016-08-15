@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get '/participante/:id', to: 'participants#show', as: 'participante'
   resources :participants do
-    resources :votes
+    member do
+      post 'upvote'
+    end
   end
 
   resources :groups

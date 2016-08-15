@@ -46,6 +46,13 @@ class ParticipantsController < ApplicationController
     redirect_to participants_url, notice: 'Participant was successfully destroyed.'
   end
 
+  def upvote
+    @participant = Participant.find(params[:id])
+    @category = Category.friendly.find(params[:category_id])
+    @participant.votes.create
+    redirect_to(category_path(@category.slug))
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_participant
