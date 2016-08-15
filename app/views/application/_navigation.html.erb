@@ -25,15 +25,15 @@
         </li>
       </ul>
     </nav>
-    <div class="navigation-tools">
-      <div class="search-bar">
-        <form role="search">
-          <input type="search" placeholder="Enter Search" />
-          <button type="submit">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-          </button>
-        </form>
-      </div>
+    <nav class="user-menu">
+      <ul class="navigation-menu">
+        <% if user_signed_in? %>
+          <li><%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %></li>
+        <% else %>
+          <li class="nav-link"><%= link_to('Iniciar Sesión', new_user_session_path)  %></li>
+          <li class="nav-link"><%= link_to('Crear cuenta', new_user_registration_path)  %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </header>

@@ -4,20 +4,3 @@
     <div><%= link_to category.title, category_path(category.slug) %></div>
   <% end %>
 </section>
-
-<hr>
-
-<% if user_signed_in? %>
-  <%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %>
-<% else %>
-  <%= form_for(:user, :url => session_path(:user)) do |f| %>
-    <%= f.text_field :email %>
-    <%= f.password_field :password %>
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me, "Recordarme" %>
-    <%= f.submit 'Iniciar sesión' %>
-    <%= link_to "¿Olvidó su contraseña?", new_password_path(:user) %>
-  <% end %>
-  <%= link_to('Iniciar Sesión', new_user_session_path)  %><br/>
-  <%= link_to('Crear cuenta', new_user_registration_path)  %>
-<% end %>
