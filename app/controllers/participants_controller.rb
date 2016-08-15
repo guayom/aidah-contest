@@ -49,7 +49,7 @@ class ParticipantsController < ApplicationController
   def upvote
     @participant = Participant.find(params[:id])
     @category = Category.friendly.find(params[:category_id])
-    @participant.votes.create
+    @participant.votes.create(:user_id => current_user.id, :category_id => @category.id)
     redirect_to(category_path(@category.slug))
   end
 
