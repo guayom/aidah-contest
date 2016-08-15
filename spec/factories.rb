@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :parameter do
+    title "MyString"
+  end
   factory :jury do
     name "MyString"
     email "MyString"
