@@ -1,7 +1,7 @@
 <h1>Home</h1>
 
 <% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  <%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %>
 <% else %>
   <%= form_for(:user, :url => session_path(:user)) do |f| %>
     <%= f.text_field :email %>
