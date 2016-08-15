@@ -1,6 +1,7 @@
 require_relative 'boot'
 require 'rails/all'
 Bundler.require(*Rails.groups)
+config.assets.initialize_on_precompile = false
 module App
   class Application < Rails::Application
     config.assets.quiet = true
