@@ -1,5 +1,6 @@
 <section id="categories">
   <h2>Vota por tu bailarina favorita</h2>
+  <p>Selecciona la categoría en la que participó</p>
   <% Category.all.each do |category| %>
     <div><%= link_to category.title, category_path(category.slug) %></div>
   <% end %>

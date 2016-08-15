@@ -28,7 +28,7 @@
     <nav class="user-menu">
       <ul class="navigation-menu">
         <% if user_signed_in? %>
-          <li><%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %></li>
+          <li class="nav-link"><<%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %></li>
         <% else %>
           <li class="nav-link"><%= link_to('Iniciar Sesión', new_user_session_path)  %></li>
           <li class="nav-link"><%= link_to('Crear cuenta', new_user_registration_path)  %></li>
