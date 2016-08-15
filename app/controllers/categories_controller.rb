@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    @participants = @category.participants
   end
 
   # GET /categories/new

@@ -1,9 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+<h1>Categoría <%= @category.title %></h1>
+<table>
+  <thead>
+    <tr>
+      <td>Foto</td>
+      <td>Nombre de la participante</td>
+      <td>Votos</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @participants.each do |participant| %>
+      <tr>
+        <td></td>
+        <td><%= participant.nombre_completo %></td>
+        <td>Votos</td>
+        <td>votar btn</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
