@@ -8,6 +8,6 @@ class Participant < ApplicationRecord
   end
 
   def slug
-    self.title.parameterize
+    self.nombre_completo.parameterize
   end
 end

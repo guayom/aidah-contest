@@ -2,22 +2,12 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @participant.name %>
+  <%= @participant.nombre_completo %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @participant.email %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @participant.lastname %>
-</p>
-
-<p>
-  <strong>Lastname2:</strong>
-  <%= @participant.lastname2 %>
+  <%= @participant.user.email %>
 </p>
 
 <p>
@@ -29,6 +19,17 @@
   <strong>Bio:</strong>
   <%= @participant.bio %>
 </p>
+
+<strong>Total de votos: </strong><%= @participant.votes.count %><br/>
+<% @participant.categories.each do |category| %>
+  <%= link_to "#{category.title} (#{@participant.votes.where(:category_id => category.id).count})", category_path(category.id) %>
+  <% if user_signed_in? %>
+    <%= button_to '+1', upvote_participant_path(:id => @participant.id, :category_id => category.id), method: :post %>
+  <% end %>
+  <br/>
+<% end %>
+
+<hr>
 
 <%= link_to 'Edit', edit_participant_path(@participant) %> |
 <%= link_to 'Back', participants_path %>

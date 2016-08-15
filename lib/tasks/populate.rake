@@ -26,8 +26,10 @@ namespace :populate do
   task votes: :environment do
     400.times{
       @random_participant = Participant.order("RANDOM()").first
+      @random_category = @random_participant.categories.order("RANDOM()").first.id
       @vote = Vote.new
       @vote.participant_id = @random_participant.id
+      @vote.category_id = @random_category
       if @vote.save
         puts "Vote for #{@random_participant.nombre_completo} added"
       end
@@ -37,7 +39,7 @@ namespace :populate do
   desc "Pupolate participants with test data"
   task participants: :environment do
     @participants = [
-      {:name=>"Victor",:lastname=>"Young",:lastname2=>"Jenkins",:tel=>"504-(414)581-9264",:bio=>"justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus"},
+      {:name=>"Guayo",:lastname=>"Mena",:lastname2=>"Jenkins",:tel=>"504-(414)581-9264",:bio=>"justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus"},
       {:name=>"Deborah",:lastname=>"Olson",:lastname2=>"Gonzalez",:tel=>"1-(541)777-4684",:bio=>"habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget"},
       {:name=>"Jonathan",:lastname=>"Ramirez",:lastname2=>"Coleman",:tel=>"242-(360)783-6672",:bio=>"luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at"},
       {:name=>"Robert",:lastname=>"Mitchell",:lastname2=>"Dixon",:tel=>"353-(329)710-6621",:bio=>"pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus"},
@@ -88,7 +90,7 @@ namespace :populate do
 
   desc "Destroy all test content"
   task destruction: :environment do
-    if Participant.destroy_all && Category.destroy_all && User.offset(1).destroy_all
+    if User.destroy_all && Participant.destroy_all && Category.destroy_all
       puts "Contenidos eliminados con éxito"
     end
   end

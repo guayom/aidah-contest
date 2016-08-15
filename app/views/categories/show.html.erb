@@ -12,8 +12,11 @@
     <% @participants.each do |participant| %>
       <tr>
         <td></td>
-        <td><%= participant.nombre_completo %></td>
-        <td><%= participant.votes.count %></td>
+        <td>
+          <%= participant.nombre_completo %><br/>
+          <%= link_to "Ver perfil", participante_path(participant.id) %>
+        </td>
+        <td><%= participant.votes.where(:category_id => @category.id).count %></td>
         <td>
           <% if user_signed_in? %>
             <%= button_to '+1', upvote_participant_path(:id => participant.id, :category_id => @category.id), method: :post %>
