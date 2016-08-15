@@ -60,16 +60,17 @@ namespace :populate do
     ]
 
     @participants.each do |participant|
-      #@participant = Participant.new
-      #@participant.name = participant['name']
-      #@category.lastname = participant.lastname
-      #@category.lastname2 = participant.lastname2
-      #@category.tel = participant.tel
-      #@category.bio = participant.bio
+
+      @user = User.create! email:               "#{participant[:name].downcase}@a.com",
+                        password:              '12345678',
+                        password_confirmation: '12345678'
+      @user.save!
+
       @participant = Participant.create(participant)
       @limit = rand(1..2)
       @category = Category.limit(@limit).order("RANDOM()")
       @participant.categories = @category
+      @participant.user_id = @user.id
       if @participant.save
         puts "Participante #{@participant.name} #{@participant.lastname} #{@participant.lastname2} creado con éxito"
       else
@@ -87,7 +88,7 @@ namespace :populate do
 
   desc "Destroy all test content"
   task destruction: :environment do
-    if Participant.destroy_all && Category.destroy_all
+    if Participant.destroy_all && Category.destroy_all && User.offset(1).destroy_all
       puts "Contenidos eliminados con éxito"
     end
   end
