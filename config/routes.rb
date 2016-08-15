@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  
-  resources :categories
+
+  resources :categories do
+    resources :participants
+  end
+
   resources :groups
   resources :parameters
   resources :juries
-  resources :participants
+
   devise_for :users
 end

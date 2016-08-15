@@ -30,9 +30,9 @@
             <% end %>
           <% end %>
         </td>
-        <td><%= link_to 'Show', participant %></td>
-        <td><%= link_to 'Edit', edit_participant_path(participant) %></td>
-        <td><%= link_to 'Destroy', participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%# link_to 'Show', category_participant_path %></td>
+        <td><%# link_to 'Edit', edit_category_participant_path(participant) %></td>
+        <td><%# link_to 'Destroy', category_participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Participant', new_participant_path %>
+<%# link_to 'New Participant', new_participant_path %>
