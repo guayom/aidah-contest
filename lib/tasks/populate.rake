@@ -2,10 +2,10 @@ namespace :populate do
   desc "Populate categories with test data"
   task categories: :environment do
     @categories = [
-      {:title => 'Grupal', :slug=> 'grupal'},
-      {:title => 'Contemporáneo', :slug=> 'contemporaneo'},
-      {:title => 'Belly Dance', :slug=> 'belly-dance'},
-      {:title => 'Zumba', :slug=> 'zumba'}
+      {:title => '​Oriental (belly dance)', :slug=> 'oriental', :description => "Cualquier estilo de danza del Medio Oriente ( American Cabaret, Libanés, Turco, Egipcio, etc )"},
+      {:title => 'Props (Elementos)', :slug=> 'props', :description => "Uso de elementos enfocados en la destreza del manejo de los mismos ( zills, abanicos, alas de isis, velo, espada, baston, candelabro, bandeja, etc ). Estilo a utilizar es libre."},
+      {:title => 'Fusión', :slug=> 'fusion', :description => "Rutina que fusiona otros estilos de danzas con la danza Oriental ( Tribal, Gipsy, Latino, Hip hop, Contemporáneo, etc)"},
+      {:title => 'Grupal', :slug=> 'grupal', :description => "Una rutina de minimo de 4.5min, enfocándose en cualquier estilo, pero siempre destacando movimientos de belly dance dentro de la rutina. Mínimo 2 personas para participar en esta categoría."}
   ]
     @categories.each do |category|
       @category = Category.create(category)
