@@ -1,7 +1,7 @@
 namespace :populate do
   desc "Populate categories with test data"
   task categories: :environment do
-    @categories = ['Grupal', 'Contemporáneo', 'Categoría 3', 'Caegoría 4']
+    @categories = ['Grupal', 'Contemporáneo', 'Belly Dance', 'Zumba']
     @categories.each do |category|
       @category = Category.new
       @category.title = category
@@ -20,6 +20,7 @@ namespace :populate do
 
   desc "Pupolate participants with test data"
   task participants: :environment do
+
     @participants = [
       {:name=>"Victor",:lastname=>"Young",:lastname2=>"Jenkins",:tel=>"504-(414)581-9264",:bio=>"justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus"},
       {:name=>"Deborah",:lastname=>"Olson",:lastname2=>"Gonzalez",:tel=>"1-(541)777-4684",:bio=>"habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget"},
@@ -51,6 +52,9 @@ namespace :populate do
       #@category.tel = participant.tel
       #@category.bio = participant.bio
       @participant = Participant.create(participant)
+      @limit = rand(1..2)
+      @category = Category.limit(@limit).order("RANDOM()")
+      @participant.categories = @category
       if @participant.save
         puts "Participante #{@participant.name} #{@participant.lastname} #{@participant.lastname2} creado con éxito"
       else
@@ -65,5 +69,15 @@ namespace :populate do
       puts "Participantes eliminados con éxito"
     end
   end
+
+  desc "Destroy all test content"
+  task destruction: :environment do
+    if Participant.destroy_all && Category.destroy_all
+      puts "Contenidos eliminados con éxito"
+    end
+  end
+
+  desc "Destroy all test content and populate again"
+  task :reset => [:destruction, :categories, :participants]
 
 end
