@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :group do
+    name "MyString"
+  end
   factory :parameter do
     title "MyString"
   end
