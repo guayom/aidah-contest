@@ -1,4 +1,11 @@
-<h1>Home</h1>
+<section id="categories">
+  <h2>Vota por tu bailarina favorita</h2>
+  <% Category.all.each do |category| %>
+    <div><%= link_to category.title, category_participants_path(category.slug) %></div>
+  <% end %>
+</section>
+
+<hr>
 
 <% if user_signed_in? %>
   <%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %>

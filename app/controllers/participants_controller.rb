@@ -3,8 +3,8 @@ class ParticipantsController < ApplicationController
 
   # GET /participants
   def index
-    category = Category.friendly.find(params[:category_id])
-    @participants = category.participants
+    @category = Category.friendly.find(params[:category_id])
+    @participants = @category.participants
   end
 
   # GET /participants/1
