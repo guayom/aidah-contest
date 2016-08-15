@@ -22,9 +22,20 @@ namespace :populate do
     end
   end
 
+  desc 'Populate votes'
+  task votes: :environment do
+    400.times{
+      @random_participant = Participant.order("RANDOM()").first
+      @vote = Vote.new
+      @vote.participant_id = @random_participant.id
+      if @vote.save
+        puts "Vote for #{@random_participant.nombre_completo} added"
+      end
+    }
+  end
+
   desc "Pupolate participants with test data"
   task participants: :environment do
-
     @participants = [
       {:name=>"Victor",:lastname=>"Young",:lastname2=>"Jenkins",:tel=>"504-(414)581-9264",:bio=>"justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus"},
       {:name=>"Deborah",:lastname=>"Olson",:lastname2=>"Gonzalez",:tel=>"1-(541)777-4684",:bio=>"habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget"},
@@ -82,6 +93,6 @@ namespace :populate do
   end
 
   desc "Destroy all test content and populate again"
-  task :reset => [:destruction, :categories, :participants]
+  task :reset => [:destruction, :categories, :participants, :votes]
 
 end

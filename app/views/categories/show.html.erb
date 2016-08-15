@@ -13,7 +13,7 @@
       <tr>
         <td></td>
         <td><%= participant.nombre_completo %></td>
-        <td>Votos</td>
+        <td><%= participant.votes.count %></td>
         <td><%= link_to 'Votar', new_participant_vote_path(participant.id) %></td>
       </tr>
     <% end %>
