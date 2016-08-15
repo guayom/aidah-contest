@@ -1,10 +1,14 @@
 namespace :populate do
   desc "Populate categories with test data"
   task categories: :environment do
-    @categories = ['Grupal', 'Contemporáneo', 'Belly Dance', 'Zumba']
+    @categories = [
+      {:title => 'Grupal', :slug=> 'grupal'},
+      {:title => 'Contemporáneo', :slug=> 'contemporaneo'},
+      {:title => 'Belly Dance', :slug=> 'belly-dance'},
+      {:title => 'Zumba', :slug=> 'zumba'}
+  ]
     @categories.each do |category|
-      @category = Category.new
-      @category.title = category
+      @category = Category.create(category)
       if @category.save
         puts "Categoría #{category} creada con éxito"
       end
