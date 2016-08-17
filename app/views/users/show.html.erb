@@ -7,7 +7,12 @@
 
 <h2>Votos: (<%= @user.vote_count %>)</h2>
 <% if @user.votes.present? %>
-  <% @user.votes.each do |vote| %>
-    <%= vote.inspect %><br/>
+  <% @user.votes.group_by {|i| i.category_id}.each do |category,votes| %>
+    <strong><%= Category.find(category).title %></strong>
+    <ul>
+      <% votes.each do |vote| %>
+        <li><%= Participant.find(vote.participant_id).nombre_completo %></li>
+      <% end %>
+    </ul><br/>
   <% end %>
 <% end %>
