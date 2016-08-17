@@ -1,0 +1,13 @@
+<% if @user.participant.present? %>
+  <h1><%= @user.participant.nombre_completo %></h1>
+  <p><%= @user.email %></p>
+<% else %>
+  <%= @user.email %>
+<% end %>
+
+<h2>Votos: (<%= @user.vote_count %>)</h2>
+<% if @user.votes.present? %>
+  <% @user.votes.each do |vote| %>
+    <%= vote.inspect %><br/>
+  <% end %>
+<% end %>

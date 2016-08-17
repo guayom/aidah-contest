@@ -18,8 +18,7 @@
         </td>
         <td><%= participant.votes.where(:category_id => @category.id).count %></td>
         <td>
-          <% if user_signed_in? && !current_user.voted_for?(@category) %>
-          
+          <% if user_signed_in? && current_user.can_vote?(@category) %>
             <%= button_to '+1', upvote_participant_path(:id => participant.id, :category_id => @category.id), method: :post %>
           <% end %>
         </td>
@@ -27,10 +26,10 @@
     <% end %>
   </tbody>
 </table>
-<% if current_user.voted_for?(@category) %>
-Votó
+<% if current_user.can_vote?(@category) %>
+Puede votar
 <% else %>
-No votó
+No puede votar
 <% end %>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |

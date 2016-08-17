@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :parameters
   resources :juries
 
+  get '/user/:id', to: 'users#show'
+
   devise_for :users
 end
