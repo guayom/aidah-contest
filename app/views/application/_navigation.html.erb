@@ -4,23 +4,11 @@
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><%= link_to 'Categorías', categories_path %></li>
-        <li id="js-navigation-more" class="nav-link more"><a href="javascript:void(0)">More</a>
+        <li id="js-navigation-categories" class="nav-link more"><%= link_to 'Categorías', categories_path %>
           <ul class="submenu">
-            <li><a href="javascript:void(0)">Submenu Item</a></li>
-            <li><a href="javascript:void(0)">Another Item</a></li>
-            <li class="more"><a href="javascript:void(0)">Item with submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
-                <li><a href="javascript:void(0)">Another Item</a></li>
-              </ul>
-            </li>
-            <li class="more"><a href="javascript:void(0)">Another submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu</a></li>
-                <li><a href="javascript:void(0)">An Item</a></li>
-              </ul>
-            </li>
+            <% Category.all.each do |category| %>
+              <li><%= link_to category.title, category_path(category.id) %></li>
+            <% end %>
           </ul>
         </li>
       </ul>
