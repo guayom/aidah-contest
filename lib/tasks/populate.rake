@@ -88,6 +88,33 @@ namespace :populate do
     end
   end
 
+  desc "Create jury"
+  task juries: :environment do
+    Jury.destroy_all
+    @jury = [
+      {:name => "jurado1", :email => "jurado1@a.com", :bio => "bla bla bla"},
+      {:name => "jurado2", :email => "jurado2@a.com", :bio => "bla bla bla"},
+      {:name => "jurado3", :email => "jurado3@a.com", :bio => "bla bla bla"}
+    ]
+    @jury.each do |jury|
+      User.destroy_all(email: jury[:email])
+      @user = User.create! email:               "#{jury[:email]}",
+                        password:              '12345678',
+                        password_confirmation: '12345678',
+                        user_type: 'jury'
+      if @user.save!
+        puts "Usuario creado - id: #{@user.id} - #{@user.email}"
+      end
+      @jury = Jury.new
+      @jury.name = jury[:name]
+      @jury.bio = jury[:bio]
+      @jury.user_id = @user.id
+      if @jury.save
+        puts "Jurado creado. Nombre: #{@jury.name}, Usuario: #{@jury.user.id}"
+      end
+    end
+  end
+
   desc "Destroy all test content"
   task destruction: :environment do
     if User.destroy_all && Participant.destroy_all && Category.destroy_all

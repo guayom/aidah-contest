@@ -16,7 +16,7 @@
     <% @juries.each do |jury| %>
       <tr>
         <td><%= jury.name %></td>
-        <td><%= jury.email %></td>
+        <td><%= jury.user.email %></td>
         <td><%= jury.bio %></td>
         <td><%= link_to 'Show', jury %></td>
         <td><%= link_to 'Edit', edit_jury_path(jury) %></td>

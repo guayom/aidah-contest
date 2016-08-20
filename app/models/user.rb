@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_one :participant, dependent: :destroy
+  has_one :jury, dependent: :destroy
   has_many :votes
 
   def vote_count(category = nil)
