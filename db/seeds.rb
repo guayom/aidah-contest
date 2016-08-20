@@ -98,3 +98,7 @@ end
     puts "Jurado creado. Nombre: #{@jury.name}, Usuario: #{@jury.user.id}"
   end
 end
+
+# admins
+User.create(:email => "admin1@a.com", :password => "12345678", :password_confirmation => "12345678", :user_type => "admin")
+User.create(:email => "admin2@a.com", :password => "12345678", :password_confirmation => "12345678", :user_type => "admin")
