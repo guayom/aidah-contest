@@ -1,5 +1,9 @@
 # Aidah-contest
 
+## Notas
+
+ - Me falta crear un form que cree jurado y usuarios al mismo tiempo
+
 ## Getting Started
 
 After you have cloned this repo, run this setup script to set up your machine
