@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_one :participant, dependent: :destroy
   has_one :jury, dependent: :destroy
+  accepts_nested_attributes_for :jury
   has_many :votes
 
   def vote_count(category = nil)

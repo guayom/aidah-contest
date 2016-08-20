@@ -65,7 +65,8 @@ namespace :populate do
 
       @user = User.create! email:               "#{participant[:name].downcase}@a.com",
                         password:              '12345678',
-                        password_confirmation: '12345678'
+                        password_confirmation: '12345678',
+                        user_type: "participant"
       @user.save!
 
       @participant = Participant.create(participant)
@@ -123,6 +124,6 @@ namespace :populate do
   end
 
   desc "Destroy all test content and populate again"
-  task :reset => [:destruction, :categories, :participants, :votes]
+  task :reset => [:destruction, :categories, :participants, :votes, :jury]
 
 end
