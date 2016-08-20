@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Participant:</strong>
+  <%= @participant_rating.participant %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @participant_rating.category %>
+</p>
+
+<p>
+  <strong>Parameter:</strong>
+  <%= @participant_rating.parameter %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @participant_rating.score %>
+</p>
+
+<%= link_to 'Edit', edit_participant_rating_path(@participant_rating) %> |
+<%= link_to 'Back', participant_ratings_path %>

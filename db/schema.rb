@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820142945) do
+ActiveRecord::Schema.define(version: 20160820175258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(version: 20160820142945) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "participant_ratings", force: :cascade do |t|
+    t.integer  "participant_id"
+    t.integer  "category_id"
+    t.integer  "parameter_id"
+    t.integer  "score"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["category_id"], name: "index_participant_ratings_on_category_id", using: :btree
+    t.index ["parameter_id"], name: "index_participant_ratings_on_parameter_id", using: :btree
+    t.index ["participant_id"], name: "index_participant_ratings_on_participant_id", using: :btree
+  end
+
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -121,5 +133,8 @@ ActiveRecord::Schema.define(version: 20160820142945) do
   end
 
   add_foreign_key "juries", "users"
+  add_foreign_key "participant_ratings", "categories"
+  add_foreign_key "participant_ratings", "parameters"
+  add_foreign_key "participant_ratings", "participants"
   add_foreign_key "participants", "users"
 end

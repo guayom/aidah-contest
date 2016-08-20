@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :participant_rating do
+    participant nil
+    category nil
+    parameter nil
+    score 1
+  end
   factory :vote do
     participant_id 1
   end

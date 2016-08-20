@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :participant_ratings
   resources :votes
   resources :categories
 
