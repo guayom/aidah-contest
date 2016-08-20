@@ -1,6 +1,7 @@
 class Participant < ApplicationRecord
   has_and_belongs_to_many :categories
   has_many :votes, dependent: :destroy
+  has_many :participant_ratings
   belongs_to :user
 
   def nombre_completo
