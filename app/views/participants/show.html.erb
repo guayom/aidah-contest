@@ -34,15 +34,21 @@
 <table>
   <thead>
     <tr>
-      <td>Juez</td>
+      <th>Juez</th>
+      <th>Promedio</th>
       <% @parameters.each do |parameter| %>
-        <td><%= parameter.title %></td>
+        <th><%= parameter.title %></th>
       <% end %>
     </tr>
   <tbody>
     <tr>
       <% @participant_ratings.group_by(&:jury_id).each do |jury, rating| %>
         <td><%= Jury.find(jury).name %></td>
+        <%
+        @scores = rating.collect{|x|x[:score]}
+        @average = @scores.inject{ |sum, el| sum + el }.to_f / @scores.size
+        %>
+        <td><%= @average %></td>
         <% rating.each do |r| %>
           <td><%= r.score %></td>
         <% end %>
