@@ -20,6 +20,7 @@ class ParticipantRatingsController < ApplicationController
       @participant_rating = ParticipantRating.new
       @participant_rating.participant_id = Participant.find(params[:participant_id]).id
       @participant_rating.category_id = Category.find(params[:category_id]).id
+      @participant_rating.jury_id = Jury.find(current_user.jury.id).id
       @participant_rating.parameter = parameter
       @kennel << @participant_rating
     end
@@ -34,10 +35,9 @@ class ParticipantRatingsController < ApplicationController
   def create
     @results = []
     @allParams = params["participant_ratings"]
-    @category_id = params["participant_ratings"][:category_id]
+    @category_id = params["participant_ratings"][0][:category_id]
     @allParams.each do |parameter|
-      parameter = parameter.to_i
-      if ParticipantRating.create(participant_rating_params)
+      if ParticipantRating.create(participant_rating_params(parameter))
         @results << 'exito'
       else
         @results << error
@@ -71,8 +71,12 @@ class ParticipantRatingsController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
-    def participant_rating_params
-      params.require(:participant_ratings).permit(:participant_id, :category_id, :parameter_id, :score, :participant_ratings => [:participant_id, :category_id, :parameter_id, :score])
+    #def participant_rating_params
+      #params.require(:participant_ratings).permit(:participant_id, :category_id, :parameter_id, :score, :jury_id, :participant_ratings => [:participant_id, :category_id, :parameter_id, :score, :jury_id])
       #my_params.params.permit(:participant_id, :category_id, :parameter_id, :score)
+    #end
+
+    def participant_rating_params(my_params)
+      my_params.permit(:participant_id, :category_id, :parameter_id, :score, :jury_id)
     end
 end

@@ -31,9 +31,25 @@
 
 <hr>
 <strong>Calificaciones del jurado</strong>
-<% @participant_ratings.each do |rating| %>
-  <p><%= rating.inspect %></p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <td>Juez</td>
+      <% @parameters.each do |parameter| %>
+        <td><%= parameter.title %></td>
+      <% end %>
+    </tr>
+  <tbody>
+    <tr>
+      <% @participant_ratings.group_by(&:jury_id).each do |jury, rating| %>
+        <td><%= Jury.find(jury).name %></td>
+        <% rating.each do |r| %>
+          <td><%= r.score %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 
 <hr>
 

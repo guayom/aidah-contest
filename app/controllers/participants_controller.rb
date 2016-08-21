@@ -10,6 +10,7 @@ class ParticipantsController < ApplicationController
   # GET /participants/1
   def show
     @participant_ratings = ParticipantRating.where(:participant_id => @participant.id)
+    @parameters = Parameter.all
   end
 
   # GET /participants/new
@@ -23,6 +24,7 @@ class ParticipantsController < ApplicationController
 
   # POST /participants
   def create
+    abort("hola")
     @participant = Participant.new(participant_params)
 
     if @participant.save
