@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     member do
       post 'upvote'
     end
-    resources :participant_ratings
+    resources :category do
+      resources :participant_ratings
+    end
   end
 
   resources :groups

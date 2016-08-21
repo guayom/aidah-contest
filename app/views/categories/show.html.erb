@@ -15,6 +15,9 @@
         <td>
           <%= participant.nombre_completo %><br/>
           <%= link_to "Ver perfil", participante_path(participant.id) %>
+          <% if user_signed_in? &&  current_user.user_type?('jury') %>
+            <%= link_to "Calificar", new_participant_category_participant_rating_path(:participant_id => participant.id, :category_id => @category.id) %>
+          <% end %>
         </td>
         <td><%= participant.votes.where(:category_id => @category.id).count %></td>
         <td>

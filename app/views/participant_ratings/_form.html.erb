@@ -1,14 +1,14 @@
-<%= simple_form_for(@participant_rating) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :participant %>
-    <%= f.association :category %>
-    <%= f.association :parameter %>
-    <%= f.input :score %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+<%= form_tag @participant_rating do %>
+  <% @kennel.each do |parameter| %>
+    <%= fields_for 'participant_ratings[]', parameter do |p| %>
+        <%= p.hidden_field :participant_id %>
+        <%= p.hidden_field :category_id %>
+        <%= p.hidden_field :parameter_id %>
+        <%= p.label :score, parameter.parameter.title %>
+        <%= p.number_field :score %>
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= submit_tag %>
   </div>
 <% end %>

@@ -12,7 +12,17 @@ class ParticipantRatingsController < ApplicationController
 
   # GET /participant_ratings/new
   def new
-    @participant_rating = ParticipantRating.new
+    @parameters = Parameter.all
+    @participant = Participant.find(params[:participant_id])
+
+    @kennel = []
+    @parameters.each do |parameter|
+      @participant_rating = ParticipantRating.new
+      @participant_rating.participant_id = Participant.find(params[:participant_id]).id
+      @participant_rating.category_id = Category.find(params[:category_id]).id
+      @participant_rating.parameter = parameter
+      @kennel << @participant_rating
+    end
   end
 
   # GET /participant_ratings/1/edit
@@ -20,13 +30,22 @@ class ParticipantRatingsController < ApplicationController
   end
 
   # POST /participant_ratings
-  def create
-    @participant_rating = ParticipantRating.new(participant_rating_params)
 
-    if @participant_rating.save
-      redirect_to @participant_rating, notice: 'Participant rating was successfully created.'
-    else
-      render :new
+  def create
+    @results = []
+    @allParams = params["participant_ratings"]
+    @category_id = params["participant_ratings"][:category_id]
+    @allParams.each do |parameter|
+      parameter = parameter.to_i
+      if ParticipantRating.create(participant_rating_params)
+        @results << 'exito'
+      else
+        @results << error
+      end
+    end
+    #necesito validar esto
+    unless @results.include? "error"
+      redirect_to category_path(@category_id ), notice: "Has calficado a esta participante exitosamente"
     end
   end
 
@@ -53,6 +72,7 @@ class ParticipantRatingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def participant_rating_params
-      params.require(:participant_rating).permit(:participant_id, :category_id, :parameter_id, :score)
+      params.require(:participant_ratings).permit(:participant_id, :category_id, :parameter_id, :score, :participant_ratings => [:participant_id, :category_id, :parameter_id, :score])
+      #my_params.params.permit(:participant_id, :category_id, :parameter_id, :score)
     end
 end

@@ -9,6 +9,7 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/1
   def show
+    @participant_ratings = ParticipantRating.where(:participant_id => @participant.id)
   end
 
   # GET /participants/new

@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def can_vote?(category)
     self.vote_count(category) < 1
   end
+
+  def user_type?(type)
+    self.user_type.present? && self.user_type == type
+  end
 end
