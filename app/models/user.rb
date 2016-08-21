@@ -8,6 +8,9 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :jury
   has_many :votes
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   def vote_count(category = nil)
     if category.nil?
       Vote.where(:user_id => self.id).count

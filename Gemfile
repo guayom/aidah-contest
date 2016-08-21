@@ -21,6 +21,7 @@ gem "sprockets-es6"
 gem "suspenders"
 gem "title"
 gem "uglifier"
+gem "paperclip", "~> 5.0.0"
 
 group :development do
   gem "listen"
