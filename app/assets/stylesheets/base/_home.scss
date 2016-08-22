@@ -1,0 +1,31 @@
+#categories{
+  @include outer-container;
+  h2{
+    @include section-title;
+  }
+}
+.rrr{
+  @include outer-container;
+}
+.section-description{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.category-container{
+  background:$light-gray;
+  padding: 40px;
+  margin-bottom: 5px;
+  text-align: center;
+  @include span-columns(6);
+  @include omega(2n);
+
+  &:hover{
+    background:darken($light-gray, 10%);
+  }
+
+  h3{
+    a{
+      color: $dark-gray;
+    }
+  }
+}

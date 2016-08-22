@@ -1,7 +1,11 @@
 <section id="categories">
   <h2>Vota por tu bailarina favorita</h2>
-  <p>Selecciona la categoría en la que participó</p>
-  <% Category.all.each do |category| %>
-    <div><%= link_to category.title, category_path(category.slug) %></div>
-  <% end %>
+  <p class="section-description">Selecciona la categoría en la que participó</p>
+  <div class="rrr">
+    <% Category.all.each do |category| %>
+      <div class="category-container">
+        <h3><%= link_to category.title, category_path(category.slug) %></h3>
+      </div>
+    <% end %>
+  </div>
 </section>
