@@ -1,0 +1,73 @@
+.participant {
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $comment-gutter: 1.4em;
+  $comment-image-padding: 0.7em;
+  $comment-image-width: 4em;
+  $comment-color: $base-font-color;
+  $comment-background: lighten($action-color, 15%);
+  $comment-detail-color: transparentize($comment-color, 0.5);
+  $comment-image-vert-alignment: top;
+
+  border-bottom: 1px solid transparentize($comment-color, 0.9);
+  display: table;
+  margin-bottom: $base-spacing;
+  padding-bottom: 1em;
+  width: 100%;
+  background:#fff;
+
+  .participant-image,
+  .participant-content,
+  .participant-position{
+    display: table-cell;
+    vertical-align: $comment-image-vert-alignment;
+  }
+
+  .participant-image {
+    padding-right: $comment-gutter;
+    padding-left: 20px;
+
+    > img {
+      background: $comment-background;
+      border-radius:50%;
+      display: block;
+      height: auto;
+      max-width: none;
+      width: $comment-image-width;
+    }
+
+    .participant-reverse-order & {
+      padding-left: 10px;
+      padding-right: 0;
+    }
+  }
+
+  .participant-content {
+    width: 100%;
+
+    h1 {
+      font-size: 1em;
+      margin: 0 0 0.5em 0;
+    }
+
+    p {
+      line-height: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p.participant-detail {
+      color: $comment-detail-color;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+  }
+  .participant-options{
+    float:left;
+  }
+  .participant-position{
+    font-size: 3em;
+    padding-right: 20px;
+  }
+}
