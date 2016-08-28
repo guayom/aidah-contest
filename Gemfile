@@ -22,6 +22,7 @@ gem "suspenders"
 gem "title"
 gem "uglifier"
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '>= 2.0.34'
 
 group :development do
   gem "listen"
