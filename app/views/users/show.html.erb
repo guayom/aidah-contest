@@ -1,4 +1,4 @@
-<%= image_tag(current_user.avatar.url(:thumb)) %>
+<%= image_tag current_user.avatar.url(:thumb) %>
 <% if @user.participant.present? %>
   <h1><%= @user.participant.nombre_completo %></h1>
   <p><%= @user.email %></p>
