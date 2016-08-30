@@ -12,12 +12,14 @@
           </ul>
         </li>
         <li class="nav-link"><%= link_to "Jurado", juries_path %></li>
-        <% if user_signed_in? && current_user.user_type.present? && current_user.user_type == "admin" %>
-          <li id="js-navigation-categories" class="nav-link more"><%= link_to 'Configuración', "#" %>
-            <ul class="submenu">
-                <li><%= link_to "Parámetros de calificación" , parameters_path %></li>
-            </ul>
-          </li>
+        <% if user_signed_in? %>
+          <% if current_user.is? :admin %>
+            <li id="js-navigation-categories" class="nav-link more"><%= link_to 'Configuración', "#" %>
+              <ul class="submenu">
+                  <li><%= link_to "Parámetros de calificación" , parameters_path %></li>
+              </ul>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </nav>

@@ -26,4 +26,12 @@ class User < ApplicationRecord
   def user_type?(type)
     self.user_type.present? && self.user_type == type
   end
+
+  # User::Roles
+  # The available roles
+  Roles = [ :admin, :jury, :participant, :default ]
+
+  def is?( requested_role )
+    self.role == requested_role.to_s
+  end
 end
