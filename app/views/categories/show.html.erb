@@ -6,7 +6,7 @@
       <%= index + 1 %>
     </div>
     <div class="participant-options">
-      <% if user_signed_in? &&  current_user.user_type?('jury') %>
+      <% if user_signed_in? &&  current_user.is?(:jury) %>
         <%= link_to "Calificar", new_participant_category_participant_rating_path(:participant_id => participant.id, :category_id => @category.id), :class => "button" %>
       <% end %>
       <% if user_signed_in? %>
