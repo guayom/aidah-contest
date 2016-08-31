@@ -24,7 +24,7 @@
         <% end %>
       </div>
       <%= link_to "Ver perfil", participante_path(participant.id), :class => "button" %>
-      <p class="participant-detail"><%= participant.votes.where(:category_id => @category.id).count %> Votos</p>
+      <p class="participant-detail"><%= participant.vote_count(@category) %> Votos</p>
     </div>
   </div>
 <% end %>

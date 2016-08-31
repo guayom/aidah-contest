@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
-    @participants = @category.participants
+    @participants = @category.participants.sort {|a,b| a.vote_count(@category) <=> b.vote_count(@category)}.reverse
   end
 
   # GET /categories/new

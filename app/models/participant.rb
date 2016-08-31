@@ -11,4 +11,8 @@ class Participant < ApplicationRecord
   def slug
     self.nombre_completo.parameterize
   end
+
+  def vote_count(category)
+    self.votes.where(:category_id => category.id).count
+  end
 end
