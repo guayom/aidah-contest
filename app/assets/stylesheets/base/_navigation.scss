@@ -290,7 +290,7 @@ header.navigation {
           background-color: $navigation-background;
           padding-left: $navigation-submenu-padding;
           text-align: left;
-          width: $navigation-submenu-width;
+          width: $navigation-submenu-width * 1.3;
         }
       }
     }
