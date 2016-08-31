@@ -1,31 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Juries</h1>
+<h1>Jurado</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Bio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="cards">
+  <%= render @juries %>
+</div>
 
-  <tbody>
-    <% @juries.each do |jury| %>
-      <tr>
-        <td><%= jury.name %></td>
-        <td><%= jury.user.email %></td>
-        <td><%= jury.bio %></td>
-        <td><%= link_to 'Show', jury %></td>
-        <td><%= link_to 'Edit', edit_jury_path(jury) %></td>
-        <td><%= link_to 'Destroy', jury, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Jury', new_jury_path %>
+<%= link_to 'Agregar otro juez', new_jury_path %>
