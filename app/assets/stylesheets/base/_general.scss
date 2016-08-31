@@ -1,4 +1,5 @@
 body{
   //background:url(../images/bg.jpg);
   //background:red;
+  @include clearfix;
 }

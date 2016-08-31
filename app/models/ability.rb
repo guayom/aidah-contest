@@ -4,12 +4,13 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    case user.is?
-    when :admin
+    if user.is? :admin
       can :manage, Jury
-    when :jury
+      can :manage, Category
+    elsif user.is? :jury
       can :manage, Jury
       can :manage, ParticipantRating
     end
+
   end
 end

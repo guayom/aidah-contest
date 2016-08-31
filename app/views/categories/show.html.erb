@@ -1,32 +1,31 @@
 <h1>Categoría <%= @category.title %></h1>
-<hr>
+
 <% @participants.each_with_index do |participant, index| %>
   <div class="participant">
     <div class="participant-position">
       <%= index + 1 %>
     </div>
-    <div class="participant-options">
-      <% if user_signed_in? &&  current_user.is?(:jury) %>
-        <%= link_to "Calificar", new_participant_category_participant_rating_path(:participant_id => participant.id, :category_id => @category.id), :class => "button" %>
-      <% end %>
-      <% if user_signed_in? %>
-        <% if current_user.can_vote?(@category) %>
-          <%= button_to '+1', upvote_participant_path(:id => participant.id, :category_id => @category.id), method: :post %>
-        <% end %>
-      <% else %>
-        <%= link_to "Regístrate para votar", new_user_session_path, :class => "button" %>
-      <% end %>
-    </div>
+
     <div class="participant-image">
       <%= image_tag(participant.user.avatar.url(:thumb)) %>
     </div>
     <div class="participant-content">
       <h1><%= participant.nombre_completo %></h1>
+      <div class="participant-options">
+        <% if user_signed_in? &&  current_user.is?(:jury) %>
+          <%= link_to "Calificar", new_participant_category_participant_rating_path(:participant_id => participant.id, :category_id => @category.id), :class => "button" %>
+        <% end %>
+        <% if user_signed_in? %>
+          <% if current_user.can_vote?(@category) %>
+            <%= button_to '+1', upvote_participant_path(:id => participant.id, :category_id => @category.id), method: :post %>
+          <% end %>
+        <% else %>
+          <%= link_to "Regístrate para votar", new_user_session_path, :class => "button" %>
+        <% end %>
+      </div>
       <%= link_to "Ver perfil", participante_path(participant.id), :class => "button" %>
       <p class="participant-detail"><%= participant.votes.where(:category_id => @category.id).count %> Votos</p>
     </div>
   </div>
 <% end %>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Editar nombre de categoría', edit_category_path(@category) if can? :edit, Category %>
