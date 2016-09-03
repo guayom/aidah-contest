@@ -34,4 +34,9 @@ class User < ApplicationRecord
   def is?( requested_role )
     self.role == requested_role.to_s
   end
+
+  protected
+  def confirmation_required?
+    false
+  end
 end
