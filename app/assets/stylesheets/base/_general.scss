@@ -1,5 +1,20 @@
-body{
+body, html{
   //background:url(../images/bg.jpg);
   //background:red;
   @include clearfix;
+}
+
+
+.registro{
+  min-height: 100%;
+  a{
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    color: #666;
+    font-weight: bold;
+    &:hover{
+      color: #000;
+    }
+  }
 }
