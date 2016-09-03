@@ -14,9 +14,22 @@ Rails.application.configure do
   config.action_controller.asset_host = ENV.fetch("ASSET_HOST", ENV.fetch("APPLICATION_HOST"))
   config.log_level = :debug
   config.log_tags = [ :request_id ]
-  config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = SMTP_SETTINGS
+
+  # config.action_mailer.perform_caching = false
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = SMTP_SETTINGS
+
+  config.action_mailer.default_url_options = { :host => 'expobellydance.com' }
+  ActionMailer::Base.smtp_settings = {
+    :address        => "smtp.sendgrid.net",
+    :port           => "25",
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => ENV['SENDGRID_DOMAIN']
+  }
+
+
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
@@ -30,8 +43,8 @@ Rails.application.configure do
   config.public_file_server.headers = {
     "Cache-Control" => "public, max-age=31557600",
   }
-  config.action_mailer.default_url_options = { host: ENV.fetch("APPLICATION_HOST") }
-  
+  #config.action_mailer.default_url_options = { host: ENV.fetch("APPLICATION_HOST") }
+
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
