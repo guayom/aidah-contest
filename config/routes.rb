@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   get '/user/:id', to: 'users#show'
 
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
 end
