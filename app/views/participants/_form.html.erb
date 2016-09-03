@@ -1,16 +1,27 @@
-<%= simple_form_for(@participant) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @participant do |participant| %>
+  <%= participant.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :lastname %>
-    <%= f.input :lastname2 %>
-    <%= f.input :tel %>
-    <%= f.input :bio %>
+    <%= participant.input :name %>
+    <%= participant.input :lastname %>
+    <%= participant.input :lastname2 %>
+
+    <%= participant.simple_fields_for :user do |user| %>
+      <%= user.input :email, required: true, autofocus: true %>
+      <%= user.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= user.input :password_confirmation, required: true %>
+    <% end %>
+
+    <%= participant.input :tel %>
+    <%= participant.input :bio %>
+    <%= participant.input :category_ids, as: :check_boxes,
+    collection: @categories %>
+
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= participant.button :submit, "Registrarse como participante" %>
   </div>
+
+
 <% end %>

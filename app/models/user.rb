@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :participant, dependent: :destroy
+  belongs_to :participant
   has_one :jury, dependent: :destroy
   accepts_nested_attributes_for :jury
   has_many :votes

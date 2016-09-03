@@ -45,17 +45,20 @@ end
 ]
 @participants.each do |participant|
 
-  @user = User.create! email:               "#{participant[:name].downcase}@a.com",
-                    password:              '12345678',
-                    password_confirmation: '12345678',
-                    user_type: "participant"
-  @user.save!
-
   @participant = Participant.create(participant)
   @limit = rand(1..2)
   @category = Category.limit(@limit).order("RANDOM()")
   @participant.categories = @category
-  @participant.user_id = @user.id
+  #@participant.user_id = @user.id
+
+  @user = User.create! email:               "#{participant[:name].downcase}@a.com",
+                    password:              '12345678',
+                    password_confirmation: '12345678',
+                    role: "participant",
+                    participant_id: @participant.id
+  @user.save!
+
+
   if @participant.save
     puts "Participante #{@participant.name} #{@participant.lastname} #{@participant.lastname2} creado con éxito"
   else
@@ -86,7 +89,7 @@ end
   @user = User.create! email:               "#{jury[:email]}",
                     password:              '12345678',
                     password_confirmation: '12345678',
-                    user_type: 'jury'
+                    role: 'jury'
   if @user.save!
     puts "Usuario creado - id: #{@user.id} - #{@user.email}"
   end
@@ -100,8 +103,8 @@ end
 end
 
 # admins
-User.create(:email => "admin1@a.com", :password => "12345678", :password_confirmation => "12345678", :user_type => "admin")
-User.create(:email => "admin2@a.com", :password => "12345678", :password_confirmation => "12345678", :user_type => "admin")
+User.create(:email => "admin1@a.com", :password => "12345678", :password_confirmation => "12345678", :role => "admin")
+User.create(:email => "admin2@a.com", :password => "12345678", :password_confirmation => "12345678", :role => "admin")
 
 #parameters
 ["Técnica", "Vestuario"].each do |parametro|

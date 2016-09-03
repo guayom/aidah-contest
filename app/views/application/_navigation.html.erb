@@ -4,14 +4,10 @@
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li id="js-navigation-categories" class="nav-link more"><%= link_to 'Categorías', categories_path %>
-          <ul class="submenu">
-            <% Category.all.each do |category| %>
-              <li><%= link_to category.title, category_path(category.id) %></li>
-            <% end %>
-          </ul>
-        </li>
-        <li class="nav-link"><%= link_to "Jurado", juries_path %></li>
+        <% Category.all.each do |category| %>
+          <li class="nav-link"><%= link_to category.title, category_path(category.id) %></li>
+        <% end %>
+
         <% if user_signed_in? %>
           <% if current_user.is? :admin %>
             <li id="js-navigation-categories" class="nav-link more"><%= link_to 'Configuración', "#" %>
@@ -30,7 +26,7 @@
           <li class="nav-link"><%= link_to current_user.email, "/user/#{current_user.id}" %></li>
         <% else %>
           <li class="nav-link"><%= link_to('Iniciar Sesión', new_user_session_path)  %></li>
-          <li class="nav-link"><%= link_to('Crear cuenta', new_user_registration_path)  %></li>
+          <li class="nav-link"><%= link_to('Crear cuenta', '/tipo_de_usuario')  %></li>
         <% end %>
       </ul>
     </div>

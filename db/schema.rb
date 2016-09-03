@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829013426) do
+ActiveRecord::Schema.define(version: 20160903193636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,7 +124,9 @@ ActiveRecord::Schema.define(version: 20160829013426) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "participant_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["participant_id"], name: "index_users_on_participant_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
@@ -144,4 +146,5 @@ ActiveRecord::Schema.define(version: 20160829013426) do
   add_foreign_key "participant_ratings", "parameters"
   add_foreign_key "participant_ratings", "participants"
   add_foreign_key "participants", "users"
+  add_foreign_key "users", "participants"
 end

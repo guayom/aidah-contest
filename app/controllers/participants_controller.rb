@@ -1,6 +1,15 @@
 class ParticipantsController < ApplicationController
   before_action :set_participant, only: [:show, :edit, :update, :destroy]
 
+  def user
+    @user
+  end
+
+  def user_attributes=(attributes)
+    #process
+  end
+
+
   # GET /participants
   def index
     @category = Category.friendly.find(params[:category_id])
@@ -16,6 +25,8 @@ class ParticipantsController < ApplicationController
   # GET /participants/new
   def new
     @participant = Participant.new
+    @participant.build_user
+    @categories = Category.all
   end
 
   # GET /participants/1/edit
@@ -24,11 +35,10 @@ class ParticipantsController < ApplicationController
 
   # POST /participants
   def create
-    abort("hola")
     @participant = Participant.new(participant_params)
 
     if @participant.save
-      redirect_to @participant, notice: 'Participant was successfully created.'
+      redirect_to @participant, notice: 'Te has registrado como participante exitosamente'
     else
       render :new
     end
@@ -37,7 +47,7 @@ class ParticipantsController < ApplicationController
   # PATCH/PUT /participants/1
   def update
     if @participant.update(participant_params)
-      redirect_to @participant, notice: 'Participant was successfully updated.'
+      redirect_to @participant, notice: 'Has editado tu perfil correctamente'
     else
       render :edit
     end
@@ -62,8 +72,7 @@ class ParticipantsController < ApplicationController
       @participant = Participant.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def participant_params
-      params.require(:participant).permit(:name, :email, :lastname, :lastname2, :tel, :bio)
+      params.require(:participant).permit(:name, :email, :lastname, :lastname2, :tel, :bio, user_attributes: [ :email, :password, :password_confirmation ], category_ids:[])
     end
 end
