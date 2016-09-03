@@ -58,6 +58,4 @@
   </tbody>
 </table> -->
 
-<hr>
-
-<%= link_to 'Editar', edit_participant_path(@participant) %>
+<%= link_to 'Editar', edit_participant_path(@participant) if can? :update, @participant %>
