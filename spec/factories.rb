@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :subscriber do
+    email "MyString"
+    name "MyString"
+    tel 1
+    category "MyString"
+    country "MyString"
+  end
   factory :participant_rating do
     participant nil
     category nil
