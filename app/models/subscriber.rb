@@ -5,4 +5,8 @@ class Subscriber < ApplicationRecord
   validates :tel, presence: true
   validates :category, presence: true
   validates :country, presence: true
+
+  def category_enum
+    ["Belly Dancer", "Profesora danzas del Medio Oriente"]
+  end
 end
