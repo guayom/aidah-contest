@@ -26,6 +26,7 @@ gem 'aws-sdk', '>= 2.0.34'
 gem "cancan"
 gem 'country_select'
 gem 'jquery-ui-rails'
+gem 'rails_admin', '~> 1.2'
 
 group :development do
   gem "listen"
