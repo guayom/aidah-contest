@@ -1,5 +1,10 @@
 class SubscribersController < ApplicationController
+  
   def new
+    @subscriber = Subscriber.new
+  end
+
+  def dancer
     @subscriber = Subscriber.new
   end
 

@@ -29,15 +29,20 @@
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
-      <fieldset>
-        <h2 class="fs-title">Choose a category</h2>
-        <%= f.select :category, options_for_select([ "Belly Dancer", "Profesora danzas del Medio Oriente" ], "Belly Dancer"), :required => 'required' %>
-        <input type="button" name="previous" class="previous action-button" value="Previous" />
-        <input type="button" name="next" class="next action-button" value="Next" />
-      </fieldset>
+      <% if dancer == true %>
+        <fieldset>
+          <h2 class="fs-title">Choose a category</h2>
+          <%= f.select :category, options_for_select([ "Belly Dancer", "Profesora danzas del Medio Oriente" ], "Belly Dancer"), :required => 'required' %>
+          <input type="button" name="previous" class="previous action-button" value="Previous" />
+          <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+      <% end %>
       <fieldset>
         <h2 class="fs-title">Select your country</h2>
         <%= f.country_select :country, :required => 'required' %>
+        <% if dancer == false %>
+          <%= f.hidden_field :category, :value => "General" %>
+        <% end %>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
         <%= f.button :submit, :class => "submit action-button" %>

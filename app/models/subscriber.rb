@@ -7,6 +7,6 @@ class Subscriber < ApplicationRecord
   validates :country, presence: true
 
   def category_enum
-    ["Belly Dancer", "Profesora danzas del Medio Oriente"]
+    ["General", "Belly Dancer", "Profesora danzas del Medio Oriente"]
   end
 end
