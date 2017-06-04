@@ -1,12 +1,13 @@
 @charset "utf-8";
 
+//@import "bourbon";
+//@import "neat";
+
 @import "normalize-rails";
 
-@import "bourbon";
-@import "neat";
-
+@import "base/mixins";
 @import "base/base";
 @import "refills/flashes";
-@import "refills/cards";
+//@import "refills/cards";
 
 @import "content/content"

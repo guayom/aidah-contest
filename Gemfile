@@ -27,6 +27,14 @@ gem "cancan"
 gem 'country_select'
 gem 'jquery-ui-rails'
 gem 'rails_admin', '~> 1.2'
+gem 'high_voltage'
+#gem 'bourbon', '5.0.0.beta.7'
+#gem "bourbon"
+#gem 'neat', '~> 1.8.0'
+#gem "neat"
+gem 'refills', group: [:development, :test]
+gem 'devise'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development do
   gem "listen"
@@ -65,10 +73,3 @@ group :staging, :production do
   gem "rack-timeout"
   gem "rails_stdout_logging"
 end
-
-gem 'high_voltage'
-gem 'bourbon', '5.0.0.beta.6'
-gem 'neat', '~> 1.8.0'
-gem 'refills', group: [:development, :test]
-gem 'devise'
-gem 'friendly_id', '~> 5.1.0'

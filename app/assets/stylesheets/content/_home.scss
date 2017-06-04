@@ -1,11 +1,11 @@
 #categories{
-  @include outer-container;
+  //@include outer-container;
   h2{
-    @include section-title;
+    //@include section-title;
   }
 }
 .rrr{
-  @include outer-container;
+  //@include outer-container;
 }
 .section-description{
   text-align: center;
@@ -16,8 +16,8 @@
   padding: 40px;
   margin-bottom: 5px;
   text-align: center;
-  @include span-columns(6);
-  @include omega(2n);
+  //@include span-columns(6);
+  //@include omega(2n);
 
   &:hover{
     background:darken($light-gray, 10%);
