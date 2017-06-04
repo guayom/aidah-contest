@@ -31,7 +31,7 @@
       </fieldset>
       <fieldset>
         <h2 class="fs-title">Choose a category</h2>
-        <%= f.input :category, :required => 'required' %>
+        <%= f.select :category, options_for_select([ "Belly Dancer", "Profesora danzas del Medio Oriente" ], "Belly Dancer"), :required => 'required' %>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
