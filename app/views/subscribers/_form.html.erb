@@ -1,15 +1,47 @@
-<%= simple_form_for(@subscriber) do |f| %>
-  <%= f.error_notification %>
+<div class="msform">
+  <%= simple_form_for(@subscriber)do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email %>
-    <%= f.input :name %>
-    <%= f.input :tel %>
-    <%= f.input :category %>
-    <%= f.country_select :country %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-inputs">
+      <!-- progressbar -->
+      <ul id="progressbar">
+        <li class="active">Email</li>
+        <li>Name</li>
+        <li>Personal Details</li>
+        <li>Telephone number</li>
+        <li>Category</li>
+        <li>Country</li>
+      </ul>
+      <fieldset>
+        <h2 class="fs-title">Email</h2>
+        <%= f.input :email %>
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Name</h2>
+        <%= f.input :name %>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Telephone number</h2>
+        <%= f.input :tel %>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Choose a category</h2>
+        <%= f.input :category %>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Select your country</h2>
+        <%= f.country_select :country %>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
+        <%= f.button :submit, :class => "submit action-button" %>
+      </fieldset>
+    </div>
+  <% end %>
+</div>
