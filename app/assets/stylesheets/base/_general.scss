@@ -20,5 +20,19 @@ body, html{
 }
 
 .main.container{
-  min-height: 95%;
+  min-height: 100vh;
+}
+
+.form-container, .image-container {
+  width: 50%;
+  float: left;
+}
+
+.form-container {
+  padding: 0 10px;
+}
+
+.image-container {
+  background: #ddd;
+  height: 100vh;
 }
