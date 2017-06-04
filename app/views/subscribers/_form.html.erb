@@ -14,30 +14,30 @@
       </ul> -->
       <fieldset>
         <h2 class="fs-title">Email</h2>
-        <%= f.input :email %>
+        <%= f.email_field :email, :required => 'required' %>
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
       <fieldset>
         <h2 class="fs-title">Name</h2>
-        <%= f.input :name %>
+        <%= f.input :name, :required => 'required' %>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
       <fieldset>
         <h2 class="fs-title">Telephone number</h2>
-        <%= f.input :tel %>
+        <%= f.input :tel, :required => 'required' %>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
       <fieldset>
         <h2 class="fs-title">Choose a category</h2>
-        <%= f.input :category %>
+        <%= f.input :category, :required => 'required' %>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
       <fieldset>
         <h2 class="fs-title">Select your country</h2>
-        <%= f.country_select :country %>
+        <%= f.country_select :country, :required => 'required' %>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
         <%= f.button :submit, :class => "submit action-button" %>
