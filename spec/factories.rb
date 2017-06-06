@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :setting do
+    terms "MyText"
+  end
   factory :subscriber do
     email "MyString"
     name "MyString"
