@@ -43,6 +43,9 @@
         <% if dancer == false %>
           <%= f.hidden_field :category, :value => "General" %>
         <% end %>
+        <div>
+          <%= f.check_box :terms_of_service %> Acepto los terminos y condiciones
+        </div>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
         <%= f.button :submit, :class => "submit action-button" %>

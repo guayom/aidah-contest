@@ -1,5 +1,5 @@
 class SubscribersController < ApplicationController
-  
+
   def new
     @subscriber = Subscriber.new
   end
@@ -25,6 +25,6 @@ class SubscribersController < ApplicationController
     end
 
     def subscriber_params
-      params.require(:subscriber).permit(:email, :name, :tel, :category, :country)
+      params.require(:subscriber).permit(:email, :name, :tel, :category, :country, :terms_of_service)
     end
 end
