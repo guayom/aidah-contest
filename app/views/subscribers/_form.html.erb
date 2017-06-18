@@ -20,20 +20,20 @@
       <fieldset>
         <h2 class="fs-title">Name</h2>
         <%= f.input :name, :required => 'required' %>
-        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
       <fieldset>
         <h2 class="fs-title">Telephone number</h2>
         <%= f.input :tel, :required => 'required' %>
-        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
         <input type="button" name="next" class="next action-button" value="Next" />
       </fieldset>
       <% if dancer == true %>
         <fieldset>
           <h2 class="fs-title">Choose a category</h2>
           <%= f.select :category, options_for_select([ "Belly Dancer", "Profesora danzas del Medio Oriente" ], "Belly Dancer"), :required => 'required' %>
-          <input type="button" name="previous" class="previous action-button" value="Previous" />
+          <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
           <input type="button" name="next" class="next action-button" value="Next" />
         </fieldset>
       <% end %>
@@ -46,7 +46,7 @@
         <div>
           <%= f.check_box :terms_of_service %> Acepto los <%= link_to "terminos y condiciones", '/terms', :target => '_blank' %>
         </div>
-        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
         <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <%= f.button :submit, :class => "submit action-button" %>
