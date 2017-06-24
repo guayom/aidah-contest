@@ -17,7 +17,9 @@
   <%# render "navigation" %>
   <div class="main container">
     <div class="form-container">
-      <div class="logo"><img src="https://via.placeholder.com/350x150?text=logo" alt="Expo Belly Dance"/></div>
+      <div class="logo">
+        <%= image_tag(@logo.url, alt: 'Expo Belly Dance') %>
+      </div>
       <%= render "flashes" -%>
       <%= yield %>
     </div>

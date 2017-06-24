@@ -2,10 +2,12 @@ class SubscribersController < ApplicationController
 
   def new
     @subscriber = Subscriber.new
+    @logo = Setting.first.logo
   end
 
   def dancer
     @subscriber = Subscriber.new
+    @logo = Setting.first.logo
   end
 
   def create
