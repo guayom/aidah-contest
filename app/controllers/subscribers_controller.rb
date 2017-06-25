@@ -2,14 +2,10 @@ class SubscribersController < ApplicationController
 
   def new
     @subscriber = Subscriber.new
-    @logo = Setting.first.logo
-    @imagen = Setting.first.image
   end
 
   def dancer
     @subscriber = Subscriber.new
-    @logo = Setting.first.logo
-    @imagen = Setting.first.image
   end
 
   def create
