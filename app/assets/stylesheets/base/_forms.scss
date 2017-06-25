@@ -149,6 +149,8 @@ select {
   	margin:0;
     float: right;
     position: relative;
+    font-size: 40px;
+    line-height: 1px;
 
     &:after {
       position: absolute;
@@ -233,5 +235,9 @@ select {
     width: auto;
     display: block;
     margin-top: 7px;
+  }
+
+  input[type="submit"] {
+    font-size: 25px;
   }
 }
