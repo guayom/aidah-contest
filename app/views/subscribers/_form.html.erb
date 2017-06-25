@@ -43,7 +43,7 @@
         <% if dancer == false %>
           <%= f.hidden_field :category, :value => "General" %>
         <% end %>
-        <div>
+        <div class="tos-checbox">
           <%= f.check_box :terms_of_service %> Acepto los <%= link_to "terminos y condiciones", '/terms', :target => '_blank' %>
         </div>
         <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
