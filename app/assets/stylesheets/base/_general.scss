@@ -24,20 +24,38 @@ body, html{
 }
 
 .form-container, .image-container {
+  box-sizing: border-box;
   float: left;
+  height: auto;
+  width: 100%;
+  text-align: center;
+
+  @include mq("tablet") {
+    height: 100vh;
+    width: 50%;
+  }
+
+  .logo {
+    margin-bottom: 20px;
+    @include mq("tablet") {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .form-container {
-  width: 50%;
-  padding: 0 30px;
-  height: 100vh;
+  @include mq("tablet") {
+    padding: 0 30px;
+  }
 }
 
 .image-container {
-  width: 50%;
   background: #ddd;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    float: none;
+    width: 100%;
+  }
 }
