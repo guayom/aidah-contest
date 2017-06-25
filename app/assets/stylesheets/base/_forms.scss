@@ -101,24 +101,20 @@ select {
 	margin: 0;
 	text-align: center;
 	position: relative;
+  border-top: solid 1px #ddd;
 
   @include mq("tablet") {
     margin: 50px auto;
+    border-top: 0;
   }
 
   @include clearfix;
 
   fieldset {
-  	background: white;
   	border: 0 none;
-  	border-radius: 3px;
   	padding: 20px 30px;
   	box-sizing: border-box;
   	margin: 0;
-
-    @include mq("tablet") {
-      box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    }
 
   	/*stacking fieldsets above each other*/
   	position: relative;
@@ -230,5 +226,12 @@ select {
   #progressbar li.active:before,  #progressbar li.active:after{
   	background: #27AE60;
   	color: white;
+  }
+
+  input[type="checkbox"] {
+    float: left;
+    width: auto;
+    display: block;
+    margin-top: 7px;
   }
 }
