@@ -18,13 +18,13 @@
   <div class="main container">
     <div class="form-container">
       <div class="logo">
-        <%= image_tag(Setting.logo.url, alt: 'Expo Belly Dance') %>
+        <%= image_tag(Setting.first.logo.url, alt: 'Expo Belly Dance') %>
       </div>
       <%= render "flashes" -%>
       <%= yield %>
     </div>
     <div class="image-container">
-      <%= image_tag(Setting.imagen.url, alt: 'Expo Belly Dance') %>
+      <%= image_tag(Setting.first.image.url, alt: 'Expo Belly Dance') %>
     </div>
   </div>
   <%# render "footer" %>
