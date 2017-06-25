@@ -14,7 +14,7 @@ body {
 }
 
 .container{
-  //@include outer-container;
-  max-width: 1260px;
+  //@include grid-container;
+  //max-width: 1260px;
   margin: 0 auto;
 }
