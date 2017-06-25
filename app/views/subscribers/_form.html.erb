@@ -13,38 +13,33 @@
         <li>Country</li>
       </ul> -->
       <fieldset>
-        <h2 class="fs-title">Email</h2>
-        <%= f.email_field :email, :required => 'required' %>
+        <%= f.input :email, :required => 'required' %>
         <input type="button" name="next" class="next action-button" value="&rtrif;" />
       </fieldset>
       <fieldset>
-        <h2 class="fs-title">Nombre completo</h2>
         <%= f.input :name, :required => 'required' %>
         <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
         <input type="button" name="next" class="next action-button" value="&rtrif;" />
       </fieldset>
       <fieldset>
-        <h2 class="fs-title">Número telefónico</h2>
         <%= f.input :tel, :required => 'required' %>
         <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
         <input type="button" name="next" class="next action-button" value="&rtrif;" />
       </fieldset>
       <% if dancer == true %>
         <fieldset>
-          <h2 class="fs-title">Seleccione una categoría</h2>
           <%= f.select :category, options_for_select([ "Belly Dancer", "Profesora danzas del Medio Oriente" ], "Belly Dancer"), :required => 'required' %>
           <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
           <input type="button" name="next" class="next action-button" value="&rtrif;" />
         </fieldset>
       <% end %>
       <fieldset>
-        <h2 class="fs-title">¿De qué país nos visita?</h2>
         <%= f.country_select :country, :required => 'required' %>
         <% if dancer == false %>
           <%= f.hidden_field :category, :value => "General" %>
         <% end %>
         <div class="tos-checbox">
-          <%= f.check_box :terms_of_service %> Acepto los <%= link_to "términos y condiciones", '/terms', :target => '_blank' %>
+          <%= f.check_box :terms_of_service %> <%= I18n.t 'tos.accept' %> <%= link_to I18n.t 'tos.terms', '/terms', :target => '_blank' %>
         </div>
         <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
         <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->

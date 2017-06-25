@@ -3,6 +3,8 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 module AidahContest
   class Application < Rails::Application
+    I18n.available_locales = [:es, :en]
+    config.i18n.default_locale = :es
     config.assets.quiet = true
     config.generators do |generate|
       generate.helper false

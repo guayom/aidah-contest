@@ -4,5 +4,11 @@ Rails.application.routes.draw do
   get '/dancer', to: 'subscribers#dancer'
   root 'subscribers#new'
 
+  get '/:locale' => 'subscribers#new'
+
   devise_for :users, controllers: { confirmations: 'confirmations' }
+
+  scope "/:locale" do
+    resources :books
+  end
 end

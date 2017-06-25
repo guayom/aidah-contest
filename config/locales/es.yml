@@ -1,0 +1,44 @@
+es:
+  date:
+    formats:
+      default:
+        "%m/%d/%Y"
+      with_weekday:
+        "%a %m/%d/%y"
+
+  time:
+    formats:
+      default:
+        "%a, %b %-d, %Y at %r"
+      date:
+        "%b %-d, %Y"
+      short:
+        "%B %d"
+
+  titles:
+    application: Expo Belly Dance Español
+
+  simple_form:
+      labels:
+        defaults:
+          email: Email
+          name: Nombre completo
+          tel: Teléfono
+          category: Seleccione una categoría
+          country: ¿De qué país nos visita?
+      hints:
+        defaults:
+          email: Tu dirección de correo electrónico
+          name: Tu nombre y apellidos
+          tel: Tu número telefónico
+          category: Seleccione una categoría
+          country: Selecciona el país de donde vienes
+      placeholders:
+        defaults:
+          email: ejemplo@email.com
+          name: Nombre y apellidos
+          tel: +506 2233-4455
+
+  tos:
+    accept: He leído y acepto los
+    terms: términos y condiciones del servicio

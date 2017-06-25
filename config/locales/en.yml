@@ -17,3 +17,7 @@ en:
 
   titles:
     application: Aidah-contest
+
+  tos:
+    accept: I have read and accepted the
+    terms: terms of service
