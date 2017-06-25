@@ -296,9 +296,50 @@ select {
   h2, label {
     text-align: left;
   }
+
+  label:after {
+    display: none;
+    content: '?';
+    font-size: .7em;
+    display: inline-block;
+    border: solid 1px #ddd;
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    color: #ddd;
+    margin-left: 8px;
+    text-align: center;
+    line-height: 1.2em;
+    margin-top: -5px;
+  }
 }
 
 .tos-checbox {
   margin-bottom: 15px;
   text-align: left;
+}
+
+.hint {
+  display: none;
+  background: rgba(0,0,0,.7);
+  border-radius: 10px;
+  padding: 8px 15px;
+  color: #fff;
+  float: left;
+  position: relative;
+
+  &:after {
+  	bottom: 100%;
+  	left: 10%;
+  	border: solid transparent;
+  	content: " ";
+  	height: 0;
+  	width: 0;
+  	position: absolute;
+  	pointer-events: none;
+  	border-color: rgba(136, 183, 213, 0);
+  	border-bottom-color: rgba(0,0,0,.7);
+  	border-width: 8px;
+  	margin-left: -8px;
+  }
 }
