@@ -292,6 +292,10 @@ select {
   input[type="submit"] {
     font-size: 25px;
   }
+
+  h2, label {
+    text-align: left;
+  }
 }
 
 .tos-checbox {
