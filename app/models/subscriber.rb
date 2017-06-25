@@ -1,6 +1,6 @@
 class Subscriber < ApplicationRecord
-  validates :email, presence: true
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :email, presence: true,
+                    format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :name, presence: true
   validates :tel, presence: true
   validates :category, presence: true
