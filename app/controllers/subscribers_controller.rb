@@ -12,7 +12,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(subscriber_params)
 
     if @subscriber.save
-      redirect_to page_path('thank-you'), notice: 'Subscriber was successfully created.'
+      redirect_to page_path(id:'thank-you'), notice: 'Subscriber was successfully created.'
     else
       render :new
     end
