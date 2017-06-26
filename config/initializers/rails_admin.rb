@@ -47,6 +47,6 @@ RailsAdmin.config do |config|
     configure :locale, :hidden do
       help 'Estos son los campos que se van a mostrar en diferentes idiomas. Para cada campo hay que agregar la traducción correspondiente.'
     end
-    include_fields :locale, :terms
+    include_fields :locale, :terms, :welcome
   end
 end

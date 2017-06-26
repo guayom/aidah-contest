@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626025944) do
+ActiveRecord::Schema.define(version: 20170626043934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20170626025944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "terms"
+    t.text     "welcome"
     t.index ["locale"], name: "index_setting_translations_on_locale", using: :btree
     t.index ["setting_id"], name: "index_setting_translations_on_setting_id", using: :btree
   end
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(version: 20170626025944) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "welcome"
   end
 
   create_table "subscribers", force: :cascade do |t|

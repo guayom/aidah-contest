@@ -8,7 +8,7 @@ class Setting < ApplicationRecord
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
   #translation_class.validates :terms, presence: true
 
-  translates :terms
+  translates :terms, :terms
   accepts_nested_attributes_for :translations, allow_destroy: true
 
   rails_admin do
