@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { confirmations: 'confirmations' }
 
-  scope "/:locale" do
-    resources :books
+  scope "/:locale", locale: /en|es/ do
+    get "/pages/:id" => 'high_voltage/pages#show', :as => :page, :format => false
   end
+
 end

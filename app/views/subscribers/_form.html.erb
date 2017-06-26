@@ -39,7 +39,7 @@
           <%= f.hidden_field :category, :value => "General" %>
         <% end %>
         <div class="tos-checbox">
-          <%= f.check_box :terms_of_service %> <%= I18n.t 'tos.accept' %> <%= link_to I18n.t 'tos.terms', '/terms', :target => '_blank' %>
+          <%= f.check_box :terms_of_service %> <%= I18n.t 'tos.accept' %> <%= link_to "#{I18n.t 'tos.terms'}", page_path(id: 'terms'), :target => '_blank' %><%# link_to I18n.t 'tos.terms', page_path(id: 'terms') %>
         </div>
         <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
         <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
