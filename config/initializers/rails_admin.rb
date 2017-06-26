@@ -24,14 +24,12 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
-  config.included_models = ["Subscriber", "User", "Setting"]
+  config.included_models = ["Subscriber", "User", "Setting", 'Setting::Translation']
 
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new do
-      except ['Setting']
-    end
+    new
     export
     bulk_delete
     show
@@ -42,5 +40,13 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.model 'Setting::Translation' do
+    visible false
+    configure :locale, :hidden do
+      help 'ttttt'
+    end
+    include_fields :locale, :terms
   end
 end
