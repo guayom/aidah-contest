@@ -18,6 +18,9 @@ en:
   titles:
     application: Aidah-contest
 
+  notifications:
+    successfuly_suscribed: Ready! You have subscribed successfully
+
   tos:
     accept: I have read and accepted the
     terms: terms of service

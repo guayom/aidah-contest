@@ -18,6 +18,9 @@ es:
   titles:
     application: Expo Belly Dance Español
 
+  notifications:
+    successfuly_suscribed: ¡Listo! Te has suscrito exitosamente
+
   simple_form:
       labels:
         defaults:
