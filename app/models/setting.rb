@@ -6,4 +6,6 @@ class Setting < ApplicationRecord
     styles: { default: "1000x1545>", small: "800x1236>" },
     :url => "/images/:attachment/:id/:basename_:style.:extension"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
+
+  translates :terms, :text
 end

@@ -35,6 +35,8 @@ gem 'high_voltage'
 gem 'refills', group: [:development, :test]
 gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
+gem 'globalize', git: 'https://github.com/globalize/globalize'
+gem 'activemodel-serializers-xml'
 
 group :development do
   gem "listen"
