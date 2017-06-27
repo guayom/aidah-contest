@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.3.1"
+ruby "2.4.0"
 
 gem "autoprefixer-rails"
 gem "delayed_job_active_record"
@@ -14,7 +14,6 @@ gem "rack-canonical-host"
 gem "rails", "~> 5.0.0"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 5.0"
-gem "simple_form"
 gem "skylight"
 gem "sprockets", ">= 3.0.0"
 gem "sprockets-es6"
@@ -38,6 +37,10 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'activemodel-serializers-xml'
 gem 'rails_admin_globalize_field'
+
+gem 'simple_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 group :development do
   gem "listen"

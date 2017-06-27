@@ -11,4 +11,5 @@ class Subscriber < ApplicationRecord
   def category_enum
     ["General", "Belly Dancer", "Profesora danzas del Medio Oriente"]
   end
+
 end

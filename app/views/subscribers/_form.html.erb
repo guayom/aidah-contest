@@ -1,6 +1,6 @@
 <div class="msform">
-  <%= simple_form_for(@subscriber)do |f| %>
-    <%= f.error_notification %>
+  <%= simple_form_for @subscriber, validate: true do |f| %>
+    <%# f.error_notification %>
 
     <div class="form-inputs">
       <!-- progressbar -->
@@ -13,7 +13,7 @@
         <li>Country</li>
       </ul> -->
       <fieldset>
-        <%= f.input :email, :required => 'required' %>
+        <%= f.input :email, validate: { presence: true } %>
         <input type="button" name="next" class="next action-button" value="&rtrif;" />
       </fieldset>
       <fieldset>
