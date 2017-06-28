@@ -24,3 +24,16 @@ en:
   tos:
     accept: I have read and accepted the
     terms: terms of service
+
+  activerecord:
+    errors:
+      models:
+        subscriber:
+          attributes:
+            email:
+              blank: Please fill the email field
+              invalid: Please use a valid email address
+            name:
+              blank: Please fill the name field
+            tel:
+              blank: Please fill the telephone field

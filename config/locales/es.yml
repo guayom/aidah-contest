@@ -45,3 +45,16 @@ es:
   tos:
     accept: He leído y acepto los
     terms: términos y condiciones del servicio
+
+  activerecord:
+    errors:
+      models:
+        subscriber:
+          attributes:
+            email:
+              blank: Por favor llena el campo de email
+              invalid: Por favor use una dirección de email válida
+            name:
+              blank: Por favor llene el campo de nombre
+            tel:
+              blank: Por favor llene el campo de teléfono
