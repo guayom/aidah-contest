@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require rails.validations.simple_form
 //= require_tree .
 
 //Navigation
