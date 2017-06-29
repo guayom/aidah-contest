@@ -12,7 +12,8 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(subscriber_params)
 
     if @subscriber.save
-      redirect_to page_path(id:'thank-you'), notice: I18n.t('notifications.successfuly_suscribed')
+      WelcomeMailer.welcome_email(@subscriber).deliver
+      redirect_to "/thank-you", notice: I18n.t('notifications.successfuly_suscribed')
     else
       render :new
     end
