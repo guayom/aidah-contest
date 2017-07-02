@@ -191,33 +191,21 @@ select {
   .action-button {
     height: 50px;
   	width: 50px;
-  	background: #27AE60;
-  	font-weight: bold;
-  	color: white;
-  	border: 0 none;
-  	border-radius: 50%;
-  	cursor: pointer;
-  	padding: 10px 5px;
-  	margin:0;
-    float: right;
-    position: relative;
-    font-size: 40px;
-    line-height: 1px;
+  	background-image: image-url("next.svg");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 100%;
+    text-indent: -9999em;
+    border: 0;
+    border-radius: 50%;
 
-    &:after {
-      position: absolute;
-      display: block;
-      content: "";
-      top: 0;
-      left: 0;
-      width: 80%;
-      height: 80%;
-      border-right: 3px solid #fff;
-      border-bottom: 3px solid #fff;
+    &.submit {
+      background-image: image-url("done.svg");
     }
   }
   .action-button:hover, .action-button:focus {
   	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+    border-color: red;
   }
   /*headings*/
   .fs-title {
