@@ -4,9 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @subscriber.name %></h1>
-    <p>
-      Sample mail sent using smtp.
-    </p>
+    <h1>Hola <%= @subscriber.name %>, te damos la bievenida a Belly Dance Magazine</h1>
+    <%= Setting.first.welcome.html_safe %>
   </body>
 </html>
