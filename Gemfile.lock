@@ -419,7 +419,7 @@ DEPENDENCIES
   formulaic
   friendly_id (~> 5.1.0)
   globalize!
-  high_voltage
+  high_voltage (~> 3.0.0)
   honeybadger
   jquery-rails
   jquery-ui-rails

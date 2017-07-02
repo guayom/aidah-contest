@@ -26,7 +26,7 @@ gem "cancan"
 gem 'country_select'
 gem 'jquery-ui-rails'
 gem 'rails_admin', '~> 1.2'
-gem 'high_voltage'
+gem 'high_voltage', '~> 3.0.0'
 #gem 'bourbon', '5.0.0.beta.7'
 #gem "bourbon"
 #gem 'neat', '~> 1.8.0'

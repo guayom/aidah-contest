@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :subscribers, only: [:new, :create]
   get '/dancers', to: 'subscribers#dancer'
-  #get "/pages/:id" => 'high_voltage/pages#show'
+  get "/paginas/:id" => 'high_voltage/pages#show'
   #get 'pages/:id' => 'high_voltage/pages#show', id: 'home'
 
   root 'subscribers#new'
