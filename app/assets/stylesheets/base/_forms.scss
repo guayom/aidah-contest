@@ -198,6 +198,7 @@ select {
     text-indent: -9999em;
     border: 0;
     border-radius: 50%;
+    float: right;
 
     &.submit {
       background-image: image-url("done.svg");
